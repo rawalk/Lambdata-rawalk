@@ -11,7 +11,6 @@ def test_train_val_split(X):
   return X_train, X_val, X_test, y_train, y_val, y_test
 
 def len_counter(n):
-    n = "294T Cells"
     return len(n)
 
 if __name__ == '__main__':
