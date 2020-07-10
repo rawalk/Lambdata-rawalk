@@ -6,15 +6,15 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="my-package-name", # the name that you will install via pip
+    name="lamdata_dspt6_rawalk", # the name that you will install via pip
     version="1.0",
-    author="Your Full Name",
-    author_email="your@email.com",
-    description="A short description",
+    author="Kush Rawal",
+    author_email="kush-rawal@lambdastudents.com",
+    description="2 helper utility functions",
     long_description=long_description,
     long_description_content_type="text/markdown", # required if using a md file for long desc
     #license="MIT",
-    url="https://github.com/YOUR_USERNAME/YOUR_REPO_NAME",
+    url="https://github.com/rawalk/Lambdata-rawalk",
     #keywords="",
     packages=find_packages() # ["my_lambdata"]
 )
