@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="lamdata_dspt6_rawalk",  # the name that you will install via pip
-    version="1.0",
+    version="1.0.1",
     author="Kush Rawal",
     author_email="kush-rawal@lambdastudents.com",
     description="2 helper utility functions",
