@@ -9,21 +9,25 @@ def enlarge(n):
     return n * 100
 
 
-def train_validation_test_split(
-        X, y, train_size=0.7, val_size=0.1, test_size=0.2, random_state=None, shuffle=True):
-
+def train_validation_test_split(X, y, train_size=0.7, val_size=0.1,
+                                test_size=0.2, random_state=None, shuffle=True):        
     X_train_val, X_test, y_train_val, y_test = train_test_split(
         X, y, test_size=test_size, random_state=random_state, shuffle=shuffle)
-
     X_train, X_val, y_train, y_val = train_test_split(
-        X_train_val, y_train_val, test_size=val_size / (train_size + val_size),
+        X_train_val, y_train_val, test_size=val_size/(train_size+val_size),
         random_state=random_state, shuffle=shuffle)
-
     return X_train, X_val, X_test, y_train, y_val, y_test
 
 
-def len_counter(n):
-    return len(n)
+class Name:
+
+    def __init__(self, name):
+        self.name = name  # instance variable
+
+
+name_object = Name("Jim Bob Joe")  # name passed to __init__
+print(name_object.name)
+
 
 
 if __name__ == '__main__':
@@ -32,5 +36,7 @@ if __name__ == '__main__':
     raw_data = load_wine()
     df = pd.DataFrame(data=raw_data['data'], columns=raw_data['feature_names'])
     df['target'] = raw_data['target']
-    breakpoint()
+    # breakpoint()
     print(df.shape)
+    X_train, X_val, X_test, y_train, y_val, y_test =
+    train_validation_test_split(df[['ash', 'hue', 'magnesium']], df['target'])
