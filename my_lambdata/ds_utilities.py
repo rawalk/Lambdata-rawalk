@@ -4,9 +4,11 @@ from sklearn.datasets import load_wine
 from pdb import set_trace as breakpoint
 from IPython.display import display
 
+
 def enlarge(n):
     ''' This function will multiple input by 100 '''
     return n * 100
+
 
 class My_Data_Splitter():
     def __init__(self, df, features, target):
@@ -15,6 +17,7 @@ class My_Data_Splitter():
         self.target = target
         self.X = df[features]
         self.y = df[target]
+
     def train_validation_test_split(self,
                                     train_size=0.7, val_size=0.1,
                                     test_size=0.2, random_state=None,
@@ -36,9 +39,11 @@ class My_Data_Splitter():
         X_train_val, X_test, y_train_val, y_test = train_test_split(
             self.X, self.y, test_size=test_size, random_state=random_state, shuffle=shuffle)
         X_train, X_val, y_train, y_val = train_test_split(
-            X_train_val, y_train_val, test_size=val_size / (train_size + val_size),
+            X_train_val, y_train_val, test_size=val_size /
+            (train_size + val_size),
             random_state=random_state, shuffle=shuffle)
         return X_train, X_val, X_test, y_train, y_val, y_test
+
     def print_split_summary(self, X_train, X_val, X_test):
         print('######################## TRAINING DATA ########################')
         print(f'X_train Shape: {X_train.shape}')
@@ -53,15 +58,12 @@ class My_Data_Splitter():
         display(X_test.describe(include='all').transpose())
         print('')
 
+
 class Name:
+    ''' This function will return an inputted name '''
 
     def __init__(self, name):
         self.name = name  # instance variable
-
-
-name_object = Name("Jim Bob Joe")  # name passed to __init__
-print(name_object.name)
-
 
 
 if __name__ == '__main__':
@@ -74,8 +76,10 @@ if __name__ == '__main__':
     df['target'] = raw_data['target']
 
     # Test the My_Data_Splitter Class
-    splitter = My_Data_Splitter(df=df, features=['ash', 'hue'], target='target')
+    splitter = My_Data_Splitter(
+        df=df, features=['ash', 'hue'], target='target')
     X_train, X_val, X_test, y_train, y_val, y_test = splitter.train_validation_test_split()
     splitter.print_split_summary(X_train, X_val, X_test)
 
-    
+    name_object = Name("Jim Bob Joe")  # name passed to __init__
+    print(name_object.name)
